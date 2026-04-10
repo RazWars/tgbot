@@ -21,13 +21,13 @@ async def forward_message(message: Message):
         await bot.send_photo(
             chat_id=CHANNEL_ID,
             photo=message.photo[-1].file_id,
-            caption="📸 Фото от пользователя"
+            caption="📸 Новое фото"
         )
     # если что-то другое
     else:
         await bot.send_message(
             chat_id=CHANNEL_ID,
-            text="📦 Пришёл файл или другой тип сообщения"
+            text="📦 Новый файл или другой тип сообщения"
         )
 
 async def main():
