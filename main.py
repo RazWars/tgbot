@@ -14,14 +14,20 @@ async def forward_message(message: Message):
     if message.text:
         await bot.send_message(
             chat_id=CHANNEL_ID,
-            text=f"📩 Новое сообщение:\n\n{message.text}"
+            text=f"{message.text}"
         )
     # если фото
     elif message.photo:
         await bot.send_photo(
             chat_id=CHANNEL_ID,
             photo=message.photo[-1].file_id,
-            caption="📸 Новое фото"
+            caption=""
+        )
+    elif message.video:
+        await bot.send_video(
+            chat_id=CHANNEL_ID,
+            video=message.photo[-1].file_id,
+            caption=""
         )
     # если что-то другое
     else:
